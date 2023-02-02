@@ -3,7 +3,7 @@
 :root {
   /* primary */
   --Bright-Blue: hsl(220, 98%, 61%);
-  --Check: linear-gradient(to right,hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
+  --Check: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
   /* light theme */
   --text-color: hsl(0, 0%, 98%);
   --Light-Grayish-Blue: hsl(233, 11%, 84%);
@@ -50,7 +50,7 @@ header {
 
 header h1 {
   font-size: 35px;
-  font-weight:bolder;
+  font-weight: bolder;
   margin-top: 0;
   text-transform: uppercase;
   letter-spacing: 10px;
@@ -73,17 +73,17 @@ header img {
   transition: background-color 1s;
 }
 
-.main-container{
+.main-container {
   overflow: hidden;
-  box-shadow: 1px 1px 20px 1px rgb(0,0,0,0.4);
+  box-shadow: 1px 1px 20px 1px rgb(0, 0, 0, 0.4);
 }
 
-.container{
+.container {
   background-color: var(--bg-section);
   transition: background-color 1s;
 }
 
-.alert{
+.alert {
   text-align: center;
   color: var(--text-color);
 }
@@ -123,12 +123,13 @@ input {
   border-bottom: 1px solid var(--Dark-Grayish-Blue);
   height: var(--list-height);
   color: var(--text-color);
+  font-size: 1rem;
   background-color: var(--bg-section);
   position: relative;
   transition: background-color 1s, color 1s;
 }
 
-.list-item p{
+.list-item p {
   width: 90%;
 }
 
@@ -137,10 +138,11 @@ input {
   color: var(--Dark-Grayish-Blue);
   justify-content: space-evenly;
   border-bottom: none;
+  margin-inline: 5px;
 }
 
-.list-toggle button{
-  font-size: 1rem;
+.list-toggle button {
+  font-size: 1.2rem;
 }
 
 .list-checked {
@@ -175,11 +177,15 @@ input {
   font-family: 'Josefin Sans', 'Ubuntu', sans-serif;
 }
 
-.list-toggle button:active{
+.list-toggle button:hover {
+  color: var(--text-color);
+}
+
+.active{
   color: var(--Bright-Blue);
 }
 
-.cross {
+.cross{
   position: absolute;
   right: 10px;
 }
@@ -190,27 +196,31 @@ input {
   }
 
   .section-center {
-    max-width: 90vw;
+    max-width: 95vw;
     margin: 50px auto;
   }
 
-  .remove-btn {
-    margin-inline: 3px;
+  .toggle-btn {
+    margin-inline: 0.2rem;
   }
 
   .btn {
-    width: 1rem;
-    height: 1rem;
+    width: 1.1rem;
+    height: 1.1rem;
     cursor: none;
   }
 
   .list-item {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
-.list-container{
-  max-height: 100vw;
-}
+  .list-container {
+    max-height: 100vw;
+  }
+
+  .list-toggle {
+    font-size: 0.8rem;
+  }
 
   .list-toggle button{
     font-size: 0.8rem;
