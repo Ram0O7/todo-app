@@ -8,7 +8,7 @@ import { useGlobalContext } from './context';
 
 const App = () => {
   const data = useGlobalContext();
-  const { submitHandler, todo, setTodo, list } = data;
+  const { submitHandler, todo, setTodo, showList, startMessage } = data;
 
   const [theme, setTheme] = useState(initialTheme);
 
@@ -41,7 +41,7 @@ const App = () => {
           <button type='submit' className='btn'></button>
           <input type='text' placeholder='Create a new todo...' value={todo} onChange={(e) => setTodo(e.target.value)} />
         </form>
-        <ListContainer todos={list} />
+        <ListContainer todos={showList} message={startMessage} />
         </div>
       </section>
     </>

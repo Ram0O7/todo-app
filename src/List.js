@@ -12,7 +12,7 @@ const List = ({ id, title, checked }) => {
         <li className={`${checked ? 'list-item list-checked' : 'list-item'}`} onClick={() => editItem(id)}>
             <button type="button" className={`${checked ? 'btn checked' : 'btn'}`}> </button>
             <p key={id}>{title}</p>
-            {checked && <button type="button" className='remove-btn cross' onClick={() => removeItem(id)}><img src={iconCross} alt="cross" /></button>}
+            {checked && <button type="button" className='toggle-btn cross' onClick={() => removeItem(id)}><img src={iconCross} alt="cross" /></button>}
         </li>
     )
 }

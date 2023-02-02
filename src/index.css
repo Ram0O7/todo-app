@@ -78,6 +78,16 @@ header img {
   box-shadow: 1px 1px 20px 1px rgb(0,0,0,0.4);
 }
 
+.container{
+  background-color: var(--bg-section);
+  transition: background-color 1s;
+}
+
+.alert{
+  text-align: center;
+  color: var(--text-color);
+}
+
 .list-container {
   width: 100%;
   list-style: none;
@@ -156,17 +166,16 @@ input {
   background-position: center;
 }
 
-.remove-btn {
+.toggle-btn {
   border: none;
   background: none;
   color: var(--Dark-Grayish-Blue);
   padding: 0;
   margin-inline: 10px;
-  font-size: 13px;
   font-family: 'Josefin Sans', 'Ubuntu', sans-serif;
 }
 
-.active {
+.list-toggle button:active{
   color: var(--Bright-Blue);
 }
 

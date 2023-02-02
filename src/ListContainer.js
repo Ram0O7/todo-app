@@ -1,10 +1,8 @@
 import React from 'react';
 import List from './List';
 import Listtoggle from './Listtoggle';
-// import { useGlobalContext } from './context';
 
-const ListContainer = ({ todos }) => {
-    // const data = useGlobalContext();
+const ListContainer = ({ todos, message }) => {
 
     return (
         <div className='container'>
@@ -19,9 +17,8 @@ const ListContainer = ({ todos }) => {
                     )
                 })}
             </ul>
-            {todos.length > 0 &&
-                <Listtoggle listCount={todos.length} />
-            }
+            {todos.length === 0 && <p className='alert'>No {message} todos to show...</p>}
+            <Listtoggle listCount={todos.length} />
         </div>
     )
 }
