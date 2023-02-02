@@ -1,13 +1,209 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Ubuntu:wght@300&display=swap');
+
+:root {
+  /* primary */
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check: linear-gradient(to right,hsl(192, 100%, 67%), hsl(280, 87%, 65%)) 1;
+  /* light theme */
+  --text-color: hsl(0, 0%, 98%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --bg-light: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue: hsl(235, 19%, 35%);
+  /* dark theme */
+  /* --bg-body: hsl(235, 21%, 11%);
+  --bg-section: hsl(235, 24%, 19%); */
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+  /* heights */
+  --list-height: 50px;
+  /* backgroung-imgs*/
+  /* --bg-desktop: url(./images/bg-desktop-dark.jpg);
+  --bg-mobile: url(./images/bg-mobile-dark.jpg); */
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: 'Josefin Sans', 'Ubuntu', sans-serif;
+  background-color: var(--bg-body);
+  background-image: var(--bg-desktop);
+  background-repeat: no-repeat;
+  background-size: contain;
+  text-transform: capitalize;
+  transition: background-image 1s, background-color 1s;
+}
+
+.section-center {
+  max-width: 500px;
+  height: auto;
+  margin: 100px auto;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 35px;
+  font-weight:bolder;
+  margin-top: 0;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  color: hsl(0, 0%, 98%);
+  /* -webkit-text-stroke-width: 0.005rem;
+  -webkit-text-stroke-color: cadetblue; */
+}
+
+header img {
+  width: 20px;
+  height: 20px;
+}
+
+.todo-form {
+  width: 100%;
+  height: var(--list-height);
+  background-color: var(--bg-section);
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 1s;
+}
+
+.main-container{
+  overflow: hidden;
+  box-shadow: 1px 1px 20px 1px rgb(0,0,0,0.4);
+}
+
+.list-container {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin-bottom: 0;
+  max-height: 450px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  /* width: 3px; */
+}
+
+/* ::-webkit-scrollbar-thumb {
+  background-color: var(--Dark-Grayish-Blue);
+} */
+
+input {
+  all: unset;
+  width: 90%;
+  background: transparent;
+  color: var(--text-color);
+  font-family: 'Josefin Sans', 'Ubuntu', sans-serif;
+}
+
+
+.list-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--Dark-Grayish-Blue);
+  height: var(--list-height);
+  color: var(--text-color);
+  background-color: var(--bg-section);
+  position: relative;
+  transition: background-color 1s, color 1s;
+}
+
+.list-item p{
+  width: 90%;
+}
+
+.list-toggle {
+  height: 40px;
+  color: var(--Dark-Grayish-Blue);
+  justify-content: space-evenly;
+  border-bottom: none;
+}
+
+.list-toggle button{
+  font-size: 1rem;
+}
+
+.list-checked {
+  text-decoration: line-through;
+  color: var(--Dark-Grayish-Blue);
+}
+
+.btn {
+  height: 20px;
+  cursor: pointer;
+  width: 20px;
+  margin: auto;
+  border: 1px solid var(--Very-Dark-Grayish-Blue);
+  border-radius: 20px;
+  background-color: var(--bg-section);
+  transition: background-color 1s;
+}
+
+.checked {
+  background: url(./images/icon-check.svg);
+  background-color: var(--Bright-Blue);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.remove-btn {
+  border: none;
+  background: none;
+  color: var(--Dark-Grayish-Blue);
+  padding: 0;
+  margin-inline: 10px;
+  font-size: 13px;
+  font-family: 'Josefin Sans', 'Ubuntu', sans-serif;
+}
+
+.active {
+  color: var(--Bright-Blue);
+}
+
+.cross {
+  position: absolute;
+  right: 10px;
+}
+
+@media (max-width:480px) {
+  body {
+    background-image: var(--bg-mobile);
+  }
+
+  .section-center {
+    max-width: 90vw;
+    margin: 50px auto;
+  }
+
+  .remove-btn {
+    margin-inline: 3px;
+  }
+
+  .btn {
+    width: 1rem;
+    height: 1rem;
+    cursor: none;
+  }
+
+  .list-item {
+    font-size: 0.8rem;
+  }
+
+.list-container{
+  max-height: 100vw;
+}
+
+  .list-toggle button{
+    font-size: 0.8rem;
+  }
 }

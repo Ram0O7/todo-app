@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ListContainer from './ListContainer';
+import { initialTheme, updatedTheme } from './theme';
 
-function App() {
+import { useGlobalContext } from './context';
+
+// let currentTheme = JSON.parse(localStorage.getItem('theme'));
+
+const App = () => {
+  const data = useGlobalContext();
+  const { submitHandler, todo, setTodo, list } = data;
+
+  const [theme, setTheme] = useState(initialTheme);
+
+  const { themeIcon, bodyBg, sectionBg, textColor, bgImg, bgImgMobile } = theme;
+  // changing custom css styles using root target method
+  document.documentElement.style.setProperty('--bg-body', bodyBg);
+  document.documentElement.style.setProperty('--bg-section', sectionBg);
+  document.documentElement.style.setProperty('--text-color', textColor);
+  document.documentElement.style.setProperty('--bg-desktop', bgImg);
+  document.documentElement.style.setProperty('--bg-mobile', bgImgMobile);
+
+  const themeHandler = () => {
+    if (!theme.changed) {
+      setTheme(updatedTheme);
+    } else {
+      setTheme(initialTheme);
+    }
+    // localStorage.setItem('theme', JSON.stringify(theme));
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <section className='section-center'>
+        <header>
+          <h1>todo</h1>
+          <img src={themeIcon} alt='dark' onClick={themeHandler} />
+        </header>
+        <div className='main-container'>
+        <form className='todo-form' onSubmit={submitHandler}>
+          <button type='submit' className='btn'></button>
+          <input type='text' placeholder='Create a new todo...' value={todo} onChange={(e) => setTodo(e.target.value)} />
+        </form>
+        <ListContainer todos={list} />
+        </div>
+      </section>
+    </>
+  )
 }
 
 export default App;
