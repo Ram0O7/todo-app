@@ -8,11 +8,10 @@ const ListContainer = ({ todos, message }) => {
         <div className='container'>
             <ul className='list-container'>
                 {todos.map((todo) => {
-                    const { id, title, day, checked } = todo;
+                    const { id, title, checked } = todo;
                     return (
                         <List id={id}
                             title={title}
-                            day={day}
                             checked={checked}
                         />
                     )

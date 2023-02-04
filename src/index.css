@@ -75,20 +75,18 @@ header img {
 .todo-form {
   width: 100%;
   height: var(--list-height);
-  background-color: var(--bg-section);
   display: flex;
   justify-content: space-between;
-  transition: background-color 500ms;
 }
 
-.container {
-  box-shadow: 1px 1px 25px 1px rgb(0, 0, 0, 0.4);
+.container, .todo-form {
+  box-shadow: 1px 1px 35px 1px rgb(0, 0, 0, 0.4);
   background-color: var(--bg-section);
   transition: background-color 500ms, box-shadow 500ms;
 }
 
 .container:hover{
-  box-shadow: unset;
+  box-shadow: 0.5px 0.5px 10px 0.5px rgb(0, 0, 0, 0.4);
 }
 
 .alert {
