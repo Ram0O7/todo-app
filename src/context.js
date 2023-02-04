@@ -48,8 +48,8 @@ const AppProvider = ({ children }) => {
         e.preventDefault();
         if (todo) {
             const newTodo = { id: new Date().getTime().toString(), title: todo, checked: false };
-            setList([...list, newTodo]);
-            setShowList([...list, newTodo]);
+            setList([newTodo,...list]);
+            setShowList([newTodo,...list]);
             setTodo("");
         }
     }
