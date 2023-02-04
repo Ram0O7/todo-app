@@ -43,6 +43,7 @@ const AppProvider = ({ children }) => {
         const clearedList = list.filter((item) => item.checked === false);
         setList(clearedList);
         setShowList(clearedList);
+        setStartMessage("");
     }
 
     const getTodoStatus = (status) => {

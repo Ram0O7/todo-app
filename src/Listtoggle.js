@@ -13,7 +13,7 @@ const Listtoggle = ({ listCount, msg }) => {
                 <button type="button" className={`${msg === "active" ? 'toggle-btn active' : 'toggle-btn'}`} onClick={() => getTodoStatus('active')}>active</button>
                 <button type="button" className={`${msg === "completed" ? 'toggle-btn active' : 'toggle-btn'}`} onClick={() => getTodoStatus('completed')}>completed</button>
             </div>
-            <button type="button" className='toggle-btn' onClick={() => getTodoStatus('clear')}>clear completed</button>
+            <button type="button" className='toggle-btn clear-btn' onClick={() => getTodoStatus('clear')}>clear completed</button>
         </div>
     )
 }

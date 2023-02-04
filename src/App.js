@@ -1,40 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import iconSun from './images/icon-sun.svg';
+import iconMoon from './images/icon-moon.svg';
 import ListContainer from './ListContainer';
-import { initialTheme, updatedTheme } from './theme';
 
 import { useGlobalContext } from './context';
 
-// let currentTheme = JSON.parse(localStorage.getItem('theme'));
+const getStorageTheme = () => {
+  let theme = 'light-theme';
+  if (localStorage.getItem('theme')) {
+    theme = localStorage.getItem('theme');
+  }
+  return theme;
+};
 
 const App = () => {
   const data = useGlobalContext();
   const { submitHandler, todo, setTodo, showList, startMessage } = data;
 
-  const [theme, setTheme] = useState(initialTheme);
-
-  const { themeIcon, bodyBg, sectionBg, textColor, bgImg, bgImgMobile } = theme;
-  // changing custom css styles using root target method
-  document.documentElement.style.setProperty('--bg-body', bodyBg);
-  document.documentElement.style.setProperty('--bg-section', sectionBg);
-  document.documentElement.style.setProperty('--text-color', textColor);
-  document.documentElement.style.setProperty('--bg-desktop', bgImg);
-  document.documentElement.style.setProperty('--bg-mobile', bgImgMobile);
-
-  const themeHandler = () => {
-    if (!theme.changed) {
-      setTheme(updatedTheme);
+  const [theme, setTheme] = useState(getStorageTheme());
+  const [icon, setIcon] = useState(iconSun);
+  
+  const toggleTheme = () => {
+    if (theme === 'light-theme') {
+      setTheme('dark-theme');
     } else {
-      setTheme(initialTheme);
+      setTheme('light-theme');
     }
-    // localStorage.setItem('theme', JSON.stringify(theme));
-  }
+  };
+
+  useEffect(() => {
+    document.documentElement.className = theme;
+    localStorage.setItem('theme', theme);
+    theme === "light-theme" ? setIcon(iconMoon) : setIcon(iconSun);
+  }, [theme]);
 
   return (
     <>
       <section className='section-center'>
         <header>
           <h1>todo</h1>
-          <img src={themeIcon} alt='dark' onClick={themeHandler} />
+          <img src={icon} alt='dark' onClick={toggleTheme} />
         </header>
         <div className='main-container'>
         <form className='todo-form' onSubmit={submitHandler}>
