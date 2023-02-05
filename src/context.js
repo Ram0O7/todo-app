@@ -9,6 +9,11 @@ const getLocalStorage = () => {
     }
     return [
         {
+            id: 5,
+            title: "remove these dummy tasks below to add yours what the fuck is this is right now that its causing so much trouble to me what should i do now",
+            checked: true,
+        },
+        {
             id: 0,
             title: "complete online javascript course",
             checked: false,

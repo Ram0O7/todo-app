@@ -9,9 +9,9 @@ const List = ({ id, title, checked }) => {
     const data = useGlobalContext();
     const { removeItem, editItem } = data;
     return (
-        <li className={`${checked ? 'list-item list-checked' : 'list-item'}`} onClick={() => editItem(id)}>
+        <li className={`${checked ? 'list-item list-checked' : 'list-item'}`} onClick={() => editItem(id)} key={id}>
             <button type="button" className={`${checked ? 'btn checked' : 'btn'}`}>{checked && <img className='check-img' src={iconCheck} alt="check" />}</button>
-            <p key={id}>{title}</p>
+            <div id="para"><p>{title}</p></div>
             {checked && <button type="button" className='toggle-btn cross' onClick={() => removeItem(id)}><img src={iconCross} alt="cross" /></button>}
         </li>
     )

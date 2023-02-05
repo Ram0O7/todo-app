@@ -7,8 +7,8 @@
 
   --Dark-Grayish-Blue: hsl(234, 11%, 52%);
   --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
-  /* heights */
-  --list-height: 50px;  
+  /* heights --- avoid setting height all the time instead put some padding*/
+  --list-height: 2rem;
   /* custom-themes */
   --bg-body: hsl(236, 33%, 92%);
   --bg-section: hsl(0, 0%, 98%);
@@ -74,7 +74,7 @@ header img {
 
 .todo-form {
   width: 100%;
-  height: var(--list-height);
+  padding: 1rem 0;
   display: flex;
   justify-content: space-between;
 }
@@ -126,9 +126,9 @@ input {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  padding: 0.2rem 0;
   align-items: center;
   border-bottom: 1px solid var(--Dark-Grayish-Blue);
-  height: var(--list-height);
   color: var(--text-color);
   font-size: 1rem;
   background-color: var(--bg-section);
@@ -136,8 +136,9 @@ input {
   transition: background-color 500ms, color 500ms;
 }
 
-.list-item p {
-  width: 90%;
+#para {
+  width: 80%;
+  margin-right: 10%;
 }
 
 .list-toggle {
@@ -145,6 +146,7 @@ input {
   color: var(--Dark-Grayish-Blue);
   justify-content: space-around;
   border-bottom: none;
+  padding: 0.2rem 0;
 }
 
 .list-toggle button {
