@@ -3,42 +3,12 @@ import React, { useState, useContext, useEffect } from 'react';
 const AppContext = React.createContext();
 
 const getLocalStorage = () => {
-    let todoList = JSON.parse(localStorage.getItem("todoList"));
-    if (todoList.length >= 1) {
-        return todoList;
+    let todoList = localStorage.getItem("todoList");
+    if (todoList) {
+        return JSON.parse(todoList);
+    } else {
+        return [];
     }
-    return [
-        {
-            id: 5,
-            title: "remove these dummy tasks below to add yours what the fuck is this is right now that its causing so much trouble to me what should i do now",
-            checked: true,
-        },
-        {
-            id: 0,
-            title: "complete online javascript course",
-            checked: false,
-        },
-        {
-            id: 1,
-            title: "jog around the park 3x",
-            checked: false,
-        },
-        {
-            id: 2,
-            title: "read for one hour",
-            checked: false,
-        },
-        {
-            id: 3,
-            title: "complete your due assignments",
-            checked: false,
-        },
-        {
-            id: 4,
-            title: "10 minutes meditation",
-            checked: false,
-        },
-    ];
 };
 
 const AppProvider = ({ children }) => {
